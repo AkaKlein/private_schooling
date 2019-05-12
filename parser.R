@@ -1,7 +1,10 @@
-#data = read.csv("/home/andrea/private_schooling/encuesta.csv", header = TRUE, stringsAsFactors = FALSE)
-data = read.csv("/home/alex/Documents/private_schooling/encuesta.csv", header = TRUE, stringsAsFactors = FALSE)
-#postal = read.csv("/home/andrea/private_schooling/postal.cat.csv", header = TRUE, colClasses = rep("character", 8))
-postal = read.csv("/home/alex/Documents/private_schooling/postal.cat.csv", header = TRUE, colClasses = rep("character", 8))
+data = read.csv("/home/andrea/private_schooling/encuesta.csv", header = TRUE, stringsAsFactors = FALSE)
+#data = read.csv("/home/alex/Documents/private_schooling/encuesta.csv", header = TRUE, stringsAsFactors = FALSE)
+postal = read.csv("/home/andrea/private_schooling/postal.cat.csv", header = TRUE, colClasses = rep("character", 8))
+#postal = read.csv("/home/alex/Documents/private_schooling/postal.cat.csv", header = TRUE, colClasses = rep("character", 8))
+income = read.csv("/home/andrea/private_schooling/income_per_capita.csv", header =  TRUE, stringsAsFactors = FALSE)
+barrio = read.csv("/home/andrea/private_schooling/postalcodesbarcelona.csv", sep = '\t', header = TRUE, stringsAsFactors = FALSE, colClasses = c("character", "character", "integer", "integer"))
+
 codes <- c("08400", postal$codigopostalid[which(postal$provincia %in% c("Barcelona", "Tarragona", "Lleida", "Girona"))])
 
 eliminated_rows <- c()
@@ -418,10 +421,294 @@ which(as.integer(data$Si.no.accediste.a.la.primera...cuántas.veces.solicitaste.
 data$Si.no.accediste.a.la.primera...cuántas.veces.solicitaste.la.entrada.[number_indices[which(as.integer(data$Si.no.accediste.a.la.primera...cuántas.veces.solicitaste.la.entrada.[number_indices]) < 2)]] <- rep("", length(which(as.integer(data$Si.no.accediste.a.la.primera...cuántas.veces.solicitaste.la.entrada.[number_indices]) <2)))
 
 eliminated_rows <- union(eliminated_rows, number_indices[which(as.integer(data$Si.no.accediste.a.la.primera...cuántas.veces.solicitaste.la.entrada.[number_indices]) > 5)])
+eliminated_rows <- union(eliminated_rows, c(1867, 2247, 2260))
+
+old_granollers <- which(data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia. == "08400")
+data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia.[old_granollers] <- rep("08401", length(old_granollers))
+
+old_granollers <- which(data$CP2 == "08400")
+data$CP2[old_granollers] <- rep("08401", length(old_granollers))
+
+strange <- c(which(data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia. == "08040"), which(data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia. == "08039"))
+eliminated_rows <- union(eliminated_rows, strange)
 
 # data$X.Fue.tu.primera.opción.
 
 # data$Si.no.fue.tu.primera.opción...cuál.fue.
 
-eliminated_rows
+eliminated_rows <- sort(eliminated_rows)
+data <- data[-eliminated_rows, ]
 
+head(postal)
+
+data$MunicipioCP1 <- sapply(data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia., function(cp) {
+  index <- which(postal$codigopostalid == cp)[1]
+  if (is.na(index)) message(cp)
+  postal$poblacion[index]
+})
+
+data$MunicipioCP2 <- sapply(data$CP2, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$poblacion[index]
+  }
+})
+
+
+data$MunicipioCP3 <- sapply(data$CP3, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$poblacion[index]
+  }
+})
+
+
+data$MunicipioCP4 <- sapply(data$CP4, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$poblacion[index]
+  }
+})
+
+
+data$BarrioCP1 <- sapply(data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia., function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    
+    if (postal$poblacion[index] == "Barcelona") {
+      index <- which(barrio$postal.code == cp)[1]
+      if (is.na(index)) message("in ",cp)
+      barrio$Barrio[index]
+    } else {
+      postal$poblacion[index]
+    }
+  }
+})
+
+data$BarrioCP2 <- sapply(data$CP2, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    if (postal$poblacion[index] == "Barcelona") {
+      index <- which(barrio$postal.code == cp)[1]
+      if (is.na(index)) message("in ", cp)
+      barrio$Barrio[index]
+    } else {
+      postal$poblacion[index]
+    }
+  }
+})
+
+data$BarrioCP3 <- sapply(data$CP3, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    if (postal$poblacion[index] == "Barcelona") {
+      index <- which(barrio$postal.code == cp)[1]
+      if (is.na(index)) message("in ", cp)
+      barrio$Barrio[index]
+    } else {
+      postal$poblacion[index]
+    }
+  }
+})
+
+data$BarrioCP4 <- sapply(data$CP4, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <- which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    if (postal$poblacion[index] == "Barcelona") {
+      index <- which(barrio$postal.code == cp)[1]
+      if (is.na(index)) message("in ", cp)
+      barrio$Barrio[index]
+    } else {
+      postal$poblacion[index]
+    }
+  }
+})
+
+data$RentaMunicipioCP1 <- sapply(data$MunicipioCP1, function(name) {
+  if (name == "") {
+    ""
+  } else {
+    index <- which(income$Municipio == name)[1]
+    if (is.na(index)) {
+      ""
+    } else {
+      income$Renta.media.2015[index]
+    }
+  }
+})
+
+data$RentaMunicipioCP2 <- sapply(data$MunicipioCP2, function(name) {
+  if (name == "") {
+    ""
+  } else {
+    index <- which(income$Municipio == name)[1]
+    if (is.na(index)) {
+      ""
+    } else {
+      income$Renta.media.2015[index]
+    }
+  }
+})
+
+
+data$RentaMunicipioCP3 <- sapply(data$MunicipioCP3, function(name) {
+  if (name == "") {
+    ""
+  } else {
+    index <- which(income$Municipio == name)[1]
+    if (is.na(index)) {
+      ""
+    } else {
+      income$Renta.media.2015[index]
+    }
+  }
+})
+
+data$RentaMunicipioCP4 <- sapply(data$MunicipioCP4, function(name) {
+  if (name == "") {
+    ""
+  } else {
+    index <- which(income$Municipio == name)[1]
+    if (is.na(index)) {
+      ""
+    } else {
+      income$Renta.media.2015[index]
+    }
+  }
+})
+
+data$RentaBarrioCP1 <- sapply(data$BarrioCP1, function(name) {
+   if (name == "") {
+    ""
+  }  else {
+    index <- which(barrio$Barrio == name)[1]
+    if (is.na(index)){
+      index <- which(income$Municipio == name)[1]
+      if (is.na(index)) {
+        ""
+      } else {
+        income$Renta.media.2015[index]
+      }
+    } else {
+      barrio$renta.disponible[index]
+    }
+  }
+})
+
+data$RentaBarrioCP2 <- sapply(data$BarrioCP2, function(name) {
+  if (name == "") {
+    ""
+  }  else {
+    index <- which(barrio$Barrio == name)[1]
+    if (is.na(index)){
+      index <- which(income$Municipio == name)[1]
+      if (is.na(index)) {
+        ""
+      } else {
+        income$Renta.media.2015[index]
+      }
+    } else {
+      barrio$renta.disponible[index]
+    }
+  }
+})
+
+data$RentaBarrioCP3 <- sapply(data$BarrioCP3, function(name) {
+  if (name == "") {
+    ""
+  }  else {
+    index <- which(barrio$Barrio == name)[1]
+    if (is.na(index)){
+      index <- which(income$Municipio == name)[1]
+      if (is.na(index)) {
+        ""
+      } else {
+        income$Renta.media.2015[index]
+      }
+    } else {
+      barrio$renta.disponible[index]
+    }
+  }
+})
+
+data$RentaBarrioCP4 <- sapply(data$BarrioCP4, function(name) {
+  if (name == "") {
+    ""
+  }  else {
+    index <- which(barrio$Barrio == name)[1]
+    if (is.na(index)){
+      index <- which(income$Municipio == name)[1]
+      if (is.na(index)) {
+        ""
+      } else {
+        income$Renta.media.2015[index]
+      }
+    } else {
+      barrio$renta.disponible[index]
+    }
+  }
+})
+
+
+data$provinciaCP1 <- sapply(data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia., function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <-which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$provincia[index]
+  }
+})
+
+data$provinciaCP2 <- sapply(data$CP2, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <-which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$provincia[index]
+  }
+})
+
+data$provinciaCP3 <- sapply(data$CP3, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <-which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$provincia[index]
+  }
+})
+
+data$provinciaCP4 <- sapply(data$CP4, function(cp) {
+  if (cp == "") {
+    ""
+  } else {
+    index <-which(postal$codigopostalid == cp) [1]
+    if (is.na(index)) message(cp)
+    postal$provincia[index]
+  }
+})
+
+write.csv(data, file = "private_schooling.csv")
