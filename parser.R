@@ -38,6 +38,14 @@ eliminated_rows <- union(eliminated_rows, c(wrong_years_two_numbers[[2]], wrong_
 eliminated_rows <- union(eliminated_rows, c(wrong_years_typo[[14]], wrong_years_typo[[16]], wrong_years_typo[[18]], wrong_years_typo[[32]], wrong_years_typo[[34]], wrong_years_typo[[36]]))
 
 # data$Género
+data$Género <- sapply(data$Género, function(gender) {
+  if (gender == "Mujer") {
+    1
+  } else {
+    0
+  }
+})
+
 
 # data$X.Cuántos.hermanos.tienes.
 bad_format <- which(is.na(as.integer(data$X.Cuántos.hermanos.tienes.)))
@@ -130,6 +138,54 @@ eliminated_rows <- union(eliminated_rows, bad_format[c(8, 19, 22, 23, 32, 37, 53
 
 # data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia.
 
+data$family_situation_1 <- sapply(data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia., function(situation) {
+  if (situation == "Padres conviviendo como pareja, casados o pareja de hecho.") {
+    1
+  } else {
+    0
+  }
+})
+
+data$family_situation_2 <- sapply(data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia., function(situation) {
+  if(situation == "Padres divorciados o separados viviendo por separado sin pareja.") {
+    1
+  } else {
+    0
+  }
+})
+
+data$family_situation_3 <- sapply(data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia., function(situation) {
+  if (situation == "Padres divorciados y uno de los dos con otra pareja.") {
+    1
+  } else {
+    0
+  }
+})
+
+data$family_situation_4 <- sapply(data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia., function(situation) {
+  if (situation == "Padres divorciados y los dos con otras parejas.") {
+    1
+  } else {
+    0
+  }
+})
+
+data$family_situation_5 <- sapply(data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia., function(situation) {
+  if (situation == "Padre o madre viudo/a, sin pareja.") {
+    1
+  } else {
+    0
+  }
+})
+
+data$family_situation_6 <- sapply(data$Durante.la.mayor.parte.de.tu.infancia...cuál.era.la.situación.de.tu.familia., function(situation) {
+  if (situation == "Padre o madre viudo/a con pareja.") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$X.A.qué.edad.tuvo.tu.MADRE.su.primer.hijo.a.
 
 bad_format_anos <- which(sapply(data$X.A.qué.edad.tuvo.tu.MADRE.su.primer.hijo.a., function(orden) grepl("ños", orden)))
@@ -200,11 +256,252 @@ eliminated_rows <- union(eliminated_rows, which(as.integer(data$X.A.qué.edad.tu
 
 # data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre.
 
+data$Mother_study_0 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "No terminó la Educación Primaria o Educación General Básica (EGB)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_1 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Educación Primaria o Educación General Básica (EGB)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_2 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Educación Secundaria Obligatoria (ESO) o Bachillerato Unificado Polivalente (BUP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_3 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Bachillerato o Curso de Orientación Universitaria (COU)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_4 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Ciclo formativo de grado medio (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_5 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Ciclo formativo de grado superior (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_6 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Diplomatura o ingeniería técnica") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_7 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Grado universitario, licenciatura o ingeniería superior") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_8 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function (level) {
+  if (level == "Máster universitario") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_study_9 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.madre., function(level) {
+  if (level == "Doctorado") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre.
+
+data$Father_study_0 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "No terminó la Educación Primaria o Educación General Básica (EGB)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_1 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Educación Primaria o Educación General Básica (EGB)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_2 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Educación Secundaria Obligatoria (ESO) o Bachillerato Unificado Polivalente (BUP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_3 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Bachillerato o Curso de Orientación Universitaria (COU)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_4 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Ciclo formativo de grado medio (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_5 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Ciclo formativo de grado superior (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_6 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Diplomatura o ingeniería técnica") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_7 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Grado universitario, licenciatura o ingeniería superior") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_8 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function (level) {
+  if (level == "Máster universitario") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_study_9 <- sapply(data$X.Cuál.es.el.nivel.de.estudios.máximo.obtenido.por.tu.padre., function(level) {
+  if (level == "Doctorado") {
+    1
+  } else {
+    0
+  }
+})
+
 
 # data$X.Qué.tipo.de.educación.recibió.tu.madre.
 
+data$Mother_ed_type_1 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.madre., function(school) {
+  if (school == "Pública") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_ed_type_2 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.madre., function(school) {
+  if (school == "Concertada religiosa") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_ed_type_3 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.madre., function(school) {
+  if (school == "Concertada laica") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_ed_type_4 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.madre., function(school) {
+  if (school == "Privada religiosa") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Mother_ed_type_5 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.madre., function(school) {
+  if (school == "Privada laica") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$X.Qué.tipo.de.educación.recibió.tu.padre.
+
+data$Father_ed_type_1 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.padre., function(school) {
+  if (school == "Pública") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_ed_type_2 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.padre., function(school) {
+  if (school == "Concertada religiosa") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_ed_type_3 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.padre., function(school) {
+  if (school == "Concertada laica") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_ed_type_4 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.padre., function(school) {
+  if (school == "Privada religiosa") {
+    1
+  } else {
+    0
+  }
+})
+
+data$Father_ed_type_5 <- sapply(data$X.Qué.tipo.de.educación.recibió.tu.padre., function(school) {
+  if (school == "Privada laica") {
+    1
+  } else {
+    0
+  }
+})
 
 # data$X.Cuál.era.la.profesion.principal.de.tu.madre.
 
@@ -289,7 +586,79 @@ data$X.Cuántas.personas.trabajaban.en.tu.hogar.a.tiempo.parcial.[bad_format] <-
 
 # data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia.
 
+data$eco_proxy_1 <- sapply(data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia., function(category) {
+  if (category == "Teníamos dificultades para cubrir nuestras necesidades básicas (vivienda, alimentación, etc.).") {
+    1
+  } else {
+    0
+  }
+})
+
+data$eco_proxy_2 <- sapply(data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia., function(category) {
+  if (category == "Lográbamos cubrir nuestras necesidades básicas, pero no nos podíamos permitir ningún lujo.") {
+    1
+  } else {
+    0
+  }
+})
+
+data$eco_proxy_3 <- sapply(data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia., function(category) {
+  if (category == "Nos podíamos permitir lujos ocasionales (como salir a comer de vez en cuando).") {
+    1
+  } else {
+    0
+  }
+})
+
+data$eco_proxy_4 <- sapply(data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia., function(category) {
+  if (category == "Nos podíamos permitir lujos de manera habitual (como ir de vacaciones cada año).") {
+    1
+  } else {
+    0
+  }
+})
+
+data$eco_proxy_5 <- sapply(data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia., function(category) {
+  if (category == "Nos podíamos permitir todavía más lujos (múltiples vacaciones anuales, varios coches).") {
+    1
+  } else {
+    0
+  }
+})
+
+data$eco_proxy_6 <- sapply(data$X.En.qué.categoría.clasificarías.la.situación.económica.de.tu.familia.durante.tu.infancia., function(category) {
+  if (category == "El dinero no era un factor limitante (casas de veraneo, varios coches, etc.).") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$X.Cuál.era.la.situación.de.tu.familia.en.cuanto.a.vivienda.
+
+data$housing_1 <- sapply(data$X.Cuál.era.la.situación.de.tu.familia.en.cuanto.a.vivienda., function(arrangement) {
+  if (arrangement == "Alquiler") {
+    1
+  } else {
+    0
+  }
+})
+
+data$housing_2 <- sapply(data$X.Cuál.era.la.situación.de.tu.familia.en.cuanto.a.vivienda., function(arrangement) {
+  if (arrangement == "Propiedad") {
+    1
+  } else {
+    0
+  }
+})
+
+data$housing_3 <- sapply(data$X.Cuál.era.la.situación.de.tu.familia.en.cuanto.a.vivienda., function(arrangement) {
+  if (arrangement == "Propiedad de protección oficial") {
+    1
+  } else {
+    0
+  }
+})
 
 # data$Indica.el.código.postal..o.códigos.postales..de.tu.casa.durante.tu.infancia.
 
@@ -373,11 +742,103 @@ which(as.integer(data$X.A.qué.edad.empezaste.a.trabajar.[number_indices]) > 50)
 eliminated_rows <- union(eliminated_rows, bad_format[52])
 eliminated_rows <- union(eliminated_rows, number_indices[which(as.integer(data$X.A.qué.edad.empezaste.a.trabajar.[number_indices]) < 8)])
 eliminated_rows <- union(eliminated_rows, number_indices[which(as.integer(data$X.A.qué.edad.empezaste.a.trabajar.[number_indices]) > 50)])
+
 # data$X.Has.terminado.de.estudiar.
+
+data$finished_studying <- sapply(data$X.Has.terminado.de.estudiar., function(finish) {
+  if (finish == "Sí") {
+    1
+  } else {
+    0
+  }
+})
 
 # data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios.
 
+data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios. <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(correct) {
+  correct = data$finished_studying
+  if (correct == 0) {
+    ""
+  }
+})
+
+
+
+data$study_level_1 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Educación Primaria o Educación General Básica (EGB)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_2 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Educación Secundaria Obligatoria (ESO) o Bachillerato Unificado Polivalente (BUP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_3 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Bachillerato o Curso de Orientación Universitaria (COU)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_4 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Ciclo formativo de grado medio (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_5 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Ciclo formativo de grado superior (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_6 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Diplomatura o ingeniería técnica") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_7 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Grado universitario,  licenciatura o ingeniería técnica") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_8 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Máster Universitario") {
+    1
+  } else {
+    0
+  }
+})
+
+data$study_level_9 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
+  if (level == "Doctorado") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo.
+
+
 
 # data$X.Has.cursado.otras.modalidades.de.bachillerato.
 
