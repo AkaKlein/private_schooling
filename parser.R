@@ -755,14 +755,9 @@ data$finished_studying <- sapply(data$X.Has.terminado.de.estudiar., function(fin
 
 # data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios.
 
-data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios. <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(correct) {
-  correct = data$finished_studying
-  if (correct == 0) {
-    ""
-  }
-})
+not_correct_indices <- which(data$finished_studying == 0)
 
-
+data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios.[not_correct_indices] <- rep("", length(not_correct_indices))
 
 data$study_level_1 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function(level) {
   if (level == "Educación Primaria o Educación General Básica (EGB)") {
@@ -836,11 +831,110 @@ data$study_level_9 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.gra
   }
 })
 
+data$accessed_fin <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.grado.máximo.de.estudios., function (level) {
+  if (level == "Doctorado" || level == "Máster Universitario" || level == "Grado universitario,  licenciatura o ingeniería técnica") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo.
 
+not_correct_indices <- which(data$finished_studying == 1)
+data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo.[not_correct_indices] <- rep("", length(not_correct_indices))
 
+data$current_level_1 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Educación Primaria") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_2 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Educación Secundaria Obligatoria (ESO)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_3 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Bachillerato") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_4 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Ciclo formativo de grado medio (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_5 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Ciclo formativo de grado superior (FP)") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_6 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Grado universitario") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_7 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Máster Universitario") {
+    1
+  } else {
+    0
+  }
+})
+
+data$current_level_8 <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Doctorado") {
+    1
+  } else {
+    0
+  }
+})
+
+data$accessed_curr <- sapply(data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo., function(current) {
+  if (current == "Doctorado" || current == "Máster Universitario" || current == "Grado universitario") {
+    1
+  } else {
+    0
+  }
+})
+
+not_correct_indices <- which(data$finished_studying == 1)
+data$Si.no.has.terminado.de.estudiar...qué.tipo.de.estudios.estás.cursando.ahora.mismo.[not_correct_indices] <- rep("", length(not_correct_indices))
+
+accepted_indices <- which(data$accessed_curr == 1)
+accepted_indices <- union(accepted_indices, which(data$accessed_fin == 1))
+
+data$accessed <- rep(0, length(data$Timestamp))
+
+data$accessed[accepted_indices] <- rep(1, length(accepted_indices))
 
 # data$X.Has.cursado.otras.modalidades.de.bachillerato.
+
+data$other_HS <- sapply(data$X.Has.cursado.otras.modalidades.de.bachillerato., function(other) {
+  if (other == "Si") {
+    1
+  } else {
+    0
+  }
+})
 
 # data$Entre.1º.de.primaria.y.2º.de.bachillerato.o.grado.medio...cuántos.cursos.estudiaste.en.un.colegio.público.
 
@@ -848,9 +942,33 @@ data$study_level_9 <- sapply(data$Si.has.terminado.de.estudiar...cuál.es.tu.gra
 
 # data$Durante.tu.educación.primaria.y.secundaria...recibiste.alguna.de.las.siguientes.
 
+data$extra_help <- sapply(data$Durante.tu.educación.primaria.y.secundaria...recibiste.alguna.de.las.siguientes., function(help) {
+  if (help == "Ninguna") {
+    0
+  } else {
+    1
+  }
+})
+
 # data$X.Practicabas.algún.deporte.de.manera.extraescolar.
 
+data$sport <- sapply(data$X.Practicabas.algún.deporte.de.manera.extraescolar., function(practice) {
+  if (practice == "Si") {
+    1
+  } else {
+    0
+  }
+})
+
 # data$X.Has.hecho.selectividad.
+
+data$PAU <- sapply(data$X.Has.hecho.selectividad., function(sele) {
+  if (sele == "Sí"){
+    1
+  } else {
+    0
+  }
+})
 
 # data$Si.hiciste.la.selectividad.en.2009.o.antes...cuál.fue.tu.nota.
 

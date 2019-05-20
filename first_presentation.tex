@@ -1,0 +1,169 @@
+\documentclass[11pt]{beamer}
+
+%%%%%%%% tema e cor %%%%%%%%
+\mode<presentation> {
+\usetheme{Madrid}
+%\usecolortheme{albatross}
+}
+
+
+\title{The Effects of Private Schooling on University Acceptance in Catalonia} 
+
+\author{Andrea Dana Klein} 
+
+\begin{document}
+\begin{frame}
+\titlepage 
+\end{frame}
+
+\begin{frame}
+\scriptsize
+%%% the following needs the amsmath LaTeX package
+
+\begin{gather}
+\begin{split}
+\widehat{\rm accessed} &= 
+-\underset{(0.19146)}{2.77300}
++\underset{(0.046990)}{0.0297555}\,\mbox{gender}
+-\underset{(0.021391)}{0.0680255}\,\mbox{siblings}
++\underset{(0.0043573)}{0.0249905}\,\mbox{mother\_first\_child}\\
+& +\underset{(0.0064540)}{0.0771395}\,\mbox{start\_working}
++\underset{(0.0047627)}{0.0368333}\,\mbox{public}
++\underset{(0.0047160)}{0.0474416}\,\mbox{concerted}
+-\underset{(0.0064392)}{0.00408944}\,\mbox{private}\\
+& -\underset{(0.058475)}{0.0704215}\,\mbox{not\_married}
++\underset{(0.11233)}{0.230092}\,\mbox{DprovinciaCP1\_2}
++\underset{(0.11611)}{0.0972205}\,\mbox{DprovinciaCP1\_3}\\
+& +\underset{(0.070062)}{0.101820}\,\mbox{DprovinciaCP1\_4}
+-\underset{(0.027344)}{0.0534770}\,\mbox{income\_proxy\_1}
+-\underset{(0.016422)}{0.0550874}\,\mbox{income\_proxy\_2}\\
+& -\underset{(0.014617)}{0.0117200}\,\mbox{income\_proxy\_3}
++\underset{(0.014977)}{0.0208862}\,\mbox{income\_proxy\_4}
++\underset{(0.025488)}{0.133805}\,\mbox{income\_proxy\_5}\\
+& +\underset{(0.036446)}{0.0616098}\,\mbox{income\_proxy\_6}
++\underset{(0.087002)}{0.533060}\,\mbox{mother\_accessed}
++\underset{(0.072087)}{0.393306}\,\mbox{father\_accessed}\\
+& -\underset{(0.036964)}{0.0417978}\,\mbox{extra\_help}
++\underset{(0.038279)}{0.171109}\,\mbox{sport}
+\end{split}
+ \notag \\
+n = 5817 \quad \bar{R}^2 = 0.0946 \quad \hat{\sigma} = 0.45454 \notag \\
+\end{gather}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+
+Number of cases 'correctly predicted' = 3954 (68.0\%)
+
+\begin{tabular}{cccc}
+&&Predicted&\\
+&&0&1\\
+Actual&0&3151&477\\
+&1&1386&803\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\scriptsize
+%%% the following needs the amsmath LaTeX package
+
+\begin{gather}
+\begin{split}
+\widehat{\rm accessed} &= 
+-\underset{(0.29531)}{2.87470}
++\underset{(0.070381)}{0.107303}\,\mbox{gender}
+-\underset{(0.030056)}{0.0535493}\,\mbox{siblings}
++\underset{(0.0065428)}{0.0409082}\,\mbox{mother\_first\_child}\\
+& +\underset{(0.011197)}{0.0670683}\,\mbox{start\_working}
++\underset{(0.0075744)}{0.0377667}\,\mbox{public}
++\underset{(0.0078251)}{0.0532650}\,\mbox{concerted}
+-\underset{(0.012237)}{0.00651901}\,\mbox{private}\\
+& -\underset{(0.075162)}{0.151105}\,\mbox{not\_married}
++\underset{(0.15162)}{0.341704}\,\mbox{DprovinciaCP1\_2}
++\underset{(0.16765)}{0.207722}\,\mbox{DprovinciaCP1\_3}\\
+& +\underset{(0.098498)}{0.0960212}\,\mbox{DprovinciaCP1\_4}
+-\underset{(0.037553)}{0.0421118}\,\mbox{income\_proxy\_1}
+-\underset{(0.025930)}{0.0457818}\,\mbox{income\_proxy\_2}\\
+& -\underset{(0.022493)}{0.0263841}\,\mbox{income\_proxy\_3}
++\underset{(0.022335)}{0.0121929}\,\mbox{income\_proxy\_4}
++\underset{(0.031481)}{0.0887928}\,\mbox{income\_proxy\_5}\\
+& +\underset{(0.048520)}{0.0443046}\,\mbox{income\_proxy\_6}
++\underset{(0.10912)}{0.434549}\,\mbox{mother\_accessed}
++\underset{(0.099822)}{0.288589}\,\mbox{father\_accessed}\\
+& -\underset{(0.055240)}{0.106252}\,\mbox{extra\_help}
++\underset{(0.061205)}{0.243153}\,\mbox{sport}
+\end{split}
+ \notag \\
+n = 2536 \quad \bar{R}^2 = 0.0847 \quad \hat{\sigma} = 0.46908 \notag \\
+\end{gather}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+
+Number of cases 'correctly predicted' = 1664 (65.6\%)
+
+\begin{tabular}{cccc}
+&&Preducted&\\
+&&0&1\\
+Actual&0&918&395\\
+&1&477&746\\
+
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\scriptsize
+%%% the following needs the amsmath LaTeX package
+
+\begin{gather}
+\begin{split}
+\widehat{\rm accessed} &= 
+-\underset{(0.24803)}{2.57859}
+-\underset{(0.065033)}{0.0606157}\,\mbox{gender}
+-\underset{(0.021556)}{0.0436761}\,\mbox{siblings}
++\underset{(0.0059653)}{0.0112341}\,\mbox{mother\_first\_child}\\
+& +\underset{(0.0082565)}{0.0907437}\,\mbox{start\_working}
++\underset{(0.0063936)}{0.0231732}\,\mbox{public}
++\underset{(0.0060272)}{0.0387798}\,\mbox{concerted}
++\underset{(0.0075661)}{0.00339503}\,\mbox{private}\\
+& -\underset{(0.096816)}{0.131410}\,\mbox{not\_married}
++\underset{(0.17549)}{0.109223}\,\mbox{DprovinciaCP1\_2}
+-\underset{(0.16862)}{0.0210675}\,\mbox{DprovinciaCP1\_3}\\
+& +\underset{(0.10220)}{0.128037}\,\mbox{DprovinciaCP1\_4}
+-\underset{(0.043433)}{0.0997800}\,\mbox{income\_proxy\_1}
+-\underset{(0.021648)}{0.0640580}\,\mbox{income\_proxy\_2}\\
+& -\underset{(0.019989)}{0.0194972}\,\mbox{income\_proxy\_3}
+-\underset{(0.021216)}{0.0107159}\,\mbox{income\_proxy\_4}
++\underset{(0.050233)}{0.139519}\,\mbox{income\_proxy\_5}\\
+& +\underset{(0.056198)}{0.0413172}\,\mbox{income\_proxy\_6}
++\underset{(0.15204)}{0.530460}\,\mbox{mother\_accessed}
++\underset{(0.10533)}{0.434279}\,\mbox{father\_accessed}\\
+& -\underset{(0.050284)}{0.0657186}\,\mbox{extra\_help}
++\underset{(0.050434)}{0.0439696}\,\mbox{sport}
+\end{split}
+ \notag \\
+n = 3281 \quad \bar{R}^2 = 0.0801 \quad \hat{\sigma} = 0.43202 \notag \\
+\centerline{(standard errors in parentheses)} \notag
+\end{gather}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Number of cases'correctly predicted' = 2403 (73.2\%)
+\begin{tabular}{cccc}
+&&Predicted&\\
+&&0&1\\
+Actual&0&2193&122\\
+&1&756&210\\
+
+\end{tabular}
+\end{center}
+\end{frame}
+
+\end{document}

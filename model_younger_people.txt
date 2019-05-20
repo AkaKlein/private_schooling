@@ -1,0 +1,50 @@
+Model 16: Probit, using observations 1-2629 (n = 2536)
+Missing or incomplete observations dropped: 93
+Dependent variable: accessed
+QML standard errors
+
+                      coefficient  std. error     z     p-value 
+  --------------------------------------------------------------
+  const               −2.87470     0.295306    −9.735   2.15e-22 ***
+  gender               0.107303    0.0703810    1.525   0.1274  
+  siblings            −0.0535493   0.0300557   −1.782   0.0748   *
+  mother_first_chi~    0.0409082   0.00654283   6.252   4.04e-10 ***
+  start_working        0.0670683   0.0111970    5.990   2.10e-09 ***
+  public               0.0377667   0.00757443   4.986   6.16e-07 ***
+  concerted            0.0532650   0.00782512   6.807   9.97e-12 ***
+  private             −0.00651901  0.0122371   −0.5327  0.5942  
+  not_married         −0.151105    0.0751624   −2.010   0.0444   **
+  DprovinciaCP1_2      0.341704    0.151616     2.254   0.0242   **
+  DprovinciaCP1_3      0.207722    0.167647     1.239   0.2153  
+  DprovinciaCP1_4      0.0960212   0.0984980    0.9749  0.3296  
+  income_proxy_1      −0.0421118   0.0375532   −1.121   0.2621  
+  income_proxy_2      −0.0457818   0.0259299   −1.766   0.0775   *
+  income_proxy_3      −0.0263841   0.0224928   −1.173   0.2408  
+  income_proxy_4       0.0121929   0.0223354    0.5459  0.5851  
+  income_proxy_5       0.0887928   0.0314813    2.820   0.0048   ***
+  income_proxy_6       0.0443046   0.0485204    0.9131  0.3612  
+  mother_accessed      0.434549    0.109117     3.982   6.82e-05 ***
+  father_accessed      0.288589    0.0998224    2.891   0.0038   ***
+  extra_help          −0.106252    0.0552396   −1.923   0.0544   *
+  sport                0.243153    0.0612052    3.973   7.10e-05 ***
+
+Mean dependent var   0.482256   S.D. dependent var   0.499784
+McFadden R-squared   0.097260   Adjusted R-squared   0.084733
+Log-likelihood      −1585.414   Akaike criterion     3214.829
+Schwarz criterion    3343.272   Hannan-Quinn         3261.426
+
+Number of cases 'correctly predicted' = 1664 (65.6%)
+f(beta'x) at mean of independent vars = 0.399
+Likelihood ratio test: Chi-square(21) = 341.619 [0.0000]
+
+           Predicted
+              0     1
+  Actual 0  918   395
+         1  477   746
+
+Excluding the constant, p-value was highest for variable 158 (private)
+
+Test for normality of residual -
+  Null hypothesis: error is normally distributed
+  Test statistic: Chi-square(2) = 7.6821
+  with p-value = 0.0214711
