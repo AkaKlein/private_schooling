@@ -1,0 +1,140 @@
+\documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1.5}
+
+%%%%%%%%%%packages
+\usepackage[english]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[latin1]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\usepackage[dvips]{graphicx,psfrag,overpic,color} %Necesario para figuras
+\usepackage{latexsym} %Necesario para simbolos ampliados
+\usepackage{amssymb} %Necesario para simbolos AMS
+\usepackage{amsmath}%Necesario para simbolos AMS extra
+\usepackage{amsfonts}%Necesario para fuentes AMS extra
+\usepackage{amsthm}
+\usepackage{pstricks}  % since the dash is rendered by pstricks!
+\usepackage[postscript]{ucs}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{titling}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{mathptmx}
+\usepackage[explicit]{titlesec}
+
+
+\titleformat{\section}[block]{\filcenter}{\thesection. \MakeUppercase{#1}}{1em}{}
+\titleformat{name=\section, numberless}[block]{\filcenter}{\MakeUppercase{#1}}{1em}{}
+\titleformat{\subsection}[hang]{}{}{1em}{\thesubsection. #1}
+\titleformat{\subsubsection}[hang]{}{}{1em}{{\normalfont\thesubsubsection. \textit{#1}}}
+
+
+\newtheorem{theorem}{{Theorem}}
+\newtheorem{prop}{{Proposition}}
+\newtheorem{defi}{{Definition}}
+\newtheorem{claim}{{Claim}}
+
+\makeindex
+
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \vspace{1in}
+  \includegraphics[width=4.56in]{logo_uab2}\\[\bigskipamount]
+  \vspace{1.5in}
+}
+\posttitle{\end{center}}
+
+\begin{document}
+
+
+\selectlanguage{english}
+
+\title{{\large TITLE: The Effects of Private Schooling in University Acceptance in Catalonia\\
+AUTHOR: Andrea Dana Klein Villalba\\
+DEGREE: Business Administration and Management\\
+ADVISOR: Katerina Chara Papioti\\
+DATE: June 7th, 2019\\}}
+\date{}
+
+%-------------------------------------------------------------%
+\clearpage\maketitle
+\thispagestyle{empty}
+\newpage
+
+\begin{abstract}
+Hello, it's me,
+\end{abstract}
+\newpage
+
+%--------------------------------------------------------------
+% Taula de continguts
+% S'elabora automaticament
+%-------------------------------------------------------------
+ \tableofcontents
+ \newpage
+%------------------------------------------------------------
+% Cos del treball
+%Es poden fer servir Parts, Capitols, Seccions i Subseccions
+%-------------------------------------------------------------
+\pagenumbering{arabic}
+
+\section{Introduction}
+
+During the school-year 2016/2017, 34.5\% of all secondary school students in Catalonia received a form of private schooling. The previous year, aroung 8.7\% of students attended a private institution. Considering that there are over half a million secondary school students, this suggests a high demand for private schooling. University education follows a similar pattern, in which roughly 11\% of students attend a private university.\\
+Previous research (Scheper) reflects on the fact that private schools in the USA are generally regarded as better than their state counterparts, and that parents may feel that they are offering a better education to their children in this way. However, there is little research on the validity of the premise that attending a private school will increase the chances of accessing university or having better opportunities after studying. This research project seeks to determine whether or not attending a private school has any effect on university acceptance in Catalonia. \\
+Thus, for this project, we have gathered data from over 5,000 adults who studied in Catalonia between grades 1 and 12. The resulting sample, is divided between individuals born before and after 1981, when the Spanish education system was last changed as a whole. From this data set, we have done several estimations to assess the effects of different environmental factors into university acceptance. 
+
+\section{Preparing the Data}
+
+To be able to make estimations about the Catalan population, it was necessary to first collect the data from individuals who studied in Catalonia. Then, the data was cleaned and prepared for its use in statistical software.
+
+\subsection{Gathering the Data}
+
+To collect the data, we prepared a survey in which we asked individuals about several factors that were thought to be relevant. The survey with all the questions can be found in Appendix 1. We want precise information on the individual's education, but also general information about their family and economic situation. We do find some measurements difficult to get, since we are relying on the individuals' capacity of remembering the situation about their childhood. Thus, when it comes to family earnings, we need to take some approximate measure of the economic situation. To do so, we ask the individual about their perception of the family's situation during their childhood, and then we ask for the postal code where they lived in. \\
+
+Once the survey was ready, we started spreading it to get answers. To try to ensure a correct sampling of the population, the survey was published in cities' and towns' Facebook groups \footnote{In Spain, it is popular to have and participate in Facebook groups for the town, city or neighborhood people live in.} The criteria to choose the groups where it would be published was for the town or city to have at least 10,000 inhabitants (in some cases 9,000 if the latest data was a few years old), and then look for groups which had at least (or close to) 1,000 members. If there were several groups fulfilling these characteristics, we would try to publish in as many of them, especially for large cities. However, we tried to get the publication in at least two groups for the same city.\\
+
+
+
+
+An example of reference is \cite{abc}.
+
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{abc}
+ABC: A System for Sequential Synthesis and Verification. Berkeley Logic Synthesis and Verification Group.
+ 
+\bibitem{dc}
+Design Compiler, from Synopsys. \url{http://www.synopsys.com/Tools/Implementation/RTLSynthesis/DesignCompiler/Pages/default.aspx}
+
+\bibitem{cudd}
+CUDD: CU Decision Diagram Package. Fabio Somenzi, Colorado University. \url{http://vlsi.colorado.edu/~fabio/CUDD/}.
+
+\bibitem{elmore48}
+W. C. Elmore. The Transient Response of Damped Linear Networks with Particular Regard to Wideband Amplifiers. Journal of Applied Physics, Vol. 19, 1948.
+
+\bibitem{nangate_library}
+NanGate Open Cell Library. \url{http://www.nangate.com/?page_id=22}.
+\end{thebibliography}
+
+\newpage
+\listoffigures
+
+\newpage
+\listoftables
+
+\section{Appendix 1: Survey}
+
+
+%
+\end{document}
+%--------------------------------------------------------------%
+%--------------------------------------------------------------%

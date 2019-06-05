@@ -1,0 +1,203 @@
+Model 7: Probit, using observations 1-2629 (n = 2536)
+Missing or incomplete observations dropped: 93
+Dependent variable: accessed
+QML standard errors
+
+                      coefficient  std. error     z     p-value 
+  --------------------------------------------------------------
+  const               −1.40743     0.258450    −5.446   5.16e-08 ***
+  gender               0.0887085   0.0700599    1.266   0.2054  
+  siblings            −0.0555812   0.0299876   −1.853   0.0638   *
+  mother_first_chi~    0.0417056   0.00656121   6.356   2.07e-10 ***
+  public               0.0379432   0.00758249   5.004   5.61e-07 ***
+  concerted            0.0539965   0.00779206   6.930   4.22e-12 ***
+  private             −0.00539298  0.0124130   −0.4345  0.6640  
+  extra_help          −0.109479    0.0550016   −1.990   0.0465   **
+  sport                0.223729    0.0608271    3.678   0.0002   ***
+  not_married         −0.153242    0.0751523   −2.039   0.0414   **
+  mother_accessed      0.436026    0.108641     4.013   5.98e-05 ***
+  father_accessed      0.284297    0.0998116    2.848   0.0044   ***
+  DprovinciaCP1_2      0.329956    0.145834     2.263   0.0237   **
+  DprovinciaCP1_3      0.231314    0.165093     1.401   0.1612  
+  DprovinciaCP1_4      0.0546512   0.0917505    0.5957  0.5514  
+  early_work          −0.176598    0.0528703   −3.340   0.0008   ***
+  eco_proxy_1         −0.340417    0.208328    −1.634   0.1022  
+  eco_proxy_2         −0.384837    0.172450    −2.232   0.0256   **
+  eco_proxy_3         −0.252557    0.164575    −1.535   0.1249  
+  eco_proxy_4         −0.109439    0.163009    −0.6714  0.5020  
+  eco_proxy_5          0.143376    0.184186     0.7784  0.4363  
+
+Mean dependent var   0.482256   S.D. dependent var   0.499784
+McFadden R-squared   0.089885   Adjusted R-squared   0.077927
+Log-likelihood      −1598.366   Akaike criterion     3238.732
+Schwarz criterion    3361.337   Hannan-Quinn         3283.211
+
+Number of cases 'correctly predicted' = 1663 (65.6%)
+f(beta'x) at mean of independent vars = 0.398
+Likelihood ratio test: Chi-square(20) = 315.716 [0.0000]
+
+           Predicted
+              0     1
+  Actual 0  912   401
+         1  472   751
+
+Excluding the constant, p-value was highest for variable 158 (private)
+
+Test for normality of residual -
+  Null hypothesis: error is normally distributed
+  Test statistic: Chi-square(2) = 11.6022
+  with p-value = 0.00302423
+
+Model 13: Probit, using observations 1-2629 (n = 2536)
+Missing or incomplete observations dropped: 93
+Dependent variable: accessed
+QML standard errors
+
+                      coefficient  std. error     z     p-value 
+  --------------------------------------------------------------
+  const               −1.74785     0.242874    −7.197   6.18e-13 ***
+  gender               0.0887085   0.0700599    1.266   0.2054  
+  siblings            −0.0555812   0.0299876   −1.853   0.0638   *
+  mother_first_chi~    0.0417056   0.00656121   6.356   2.07e-10 ***
+  public               0.0379432   0.00758249   5.004   5.61e-07 ***
+  concerted            0.0539965   0.00779206   6.930   4.22e-12 ***
+  private             −0.00539298  0.0124130   −0.4345  0.6640  
+  extra_help          −0.109479    0.0550016   −1.990   0.0465   **
+  sport                0.223729    0.0608271    3.678   0.0002   ***
+  not_married         −0.153242    0.0751523   −2.039   0.0414   **
+  mother_accessed      0.436026    0.108641     4.013   5.98e-05 ***
+  father_accessed      0.284297    0.0998116    2.848   0.0044   ***
+  DprovinciaCP1_2      0.329956    0.145834     2.263   0.0237   **
+  DprovinciaCP1_3      0.231314    0.165093     1.401   0.1612  
+  DprovinciaCP1_4      0.0546512   0.0917505    0.5957  0.5514  
+  early_work          −0.176598    0.0528703   −3.340   0.0008   ***
+  eco_proxy_2         −0.0444203   0.146334    −0.3036  0.7615  
+  eco_proxy_3          0.0878596   0.140269     0.6264  0.5311  
+  eco_proxy_4          0.230978    0.141420     1.633   0.1024  
+  eco_proxy_5          0.483793    0.167505     2.888   0.0039   ***
+  eco_proxy_6          0.340417    0.208328     1.634   0.1022  
+
+Mean dependent var   0.482256   S.D. dependent var   0.499784
+McFadden R-squared   0.089885   Adjusted R-squared   0.077927
+Log-likelihood      −1598.366   Akaike criterion     3238.732
+Schwarz criterion    3361.337   Hannan-Quinn         3283.211
+
+Number of cases 'correctly predicted' = 1663 (65.6%)
+f(beta'x) at mean of independent vars = 0.398
+Likelihood ratio test: Chi-square(20) = 315.716 [0.0000]
+
+           Predicted
+              0     1
+  Actual 0  912   401
+         1  472   751
+
+Excluding the constant, p-value was highest for variable 60 (eco_proxy_2)
+
+Test for normality of residual -
+  Null hypothesis: error is normally distributed
+  Test statistic: Chi-square(2) = 11.6022
+  with p-value = 0.00302423
+
+Model 14: Probit, using observations 1-2629 (n = 2503)
+Missing or incomplete observations dropped: 126
+Dependent variable: accessed
+QML standard errors
+
+                      coefficient   std. error      z      p-value 
+  -----------------------------------------------------------------
+  const               −1.87774      0.250183     −7.505    6.12e-14 ***
+  gender               0.0922884    0.0705929     1.307    0.1911  
+  siblings            −0.0573042    0.0303603    −1.887    0.0591   *
+  mother_first_chi~    0.0411081    0.00661889    6.211    5.27e-10 ***
+  public               0.0370724    0.00760682    4.874    1.10e-06 ***
+  concerted            0.0543867    0.00781492    6.959    3.42e-12 ***
+  private             −0.00893244   0.0124095    −0.7198   0.4716  
+  extra_help          −0.121521     0.0554900    −2.190    0.0285   **
+  sport                0.228108     0.0612032     3.727    0.0002   ***
+  not_married         −0.162934     0.0757216    −2.152    0.0314   **
+  mother_accessed      0.410690     0.109055      3.766    0.0002   ***
+  father_accessed      0.286915     0.100738      2.848    0.0044   ***
+  DprovinciaCP1_2      0.403867     0.151453      2.667    0.0077   ***
+  DprovinciaCP1_3      0.382065     0.180727      2.114    0.0345   **
+  DprovinciaCP1_4      0.0942655    0.0942352     1.000    0.3172  
+  early_work          −0.183405     0.0533366    −3.439    0.0006   ***
+  eco_proxy_2         −0.00623410   0.149207     −0.04178  0.9667  
+  eco_proxy_3          0.109116     0.143257      0.7617   0.4463  
+  eco_proxy_4          0.259022     0.144323      1.795    0.0727   *
+  eco_proxy_5          0.513887     0.170861      3.008    0.0026   ***
+  eco_proxy_6          0.343898     0.210834      1.631    0.1029  
+  sq_RentaBarrio10~    0.000189307  8.63700e-05   2.192    0.0284   **
+
+Mean dependent var   0.483420   S.D. dependent var   0.499825
+McFadden R-squared   0.093405   Adjusted R-squared   0.080714
+Log-likelihood      −1571.647   Akaike criterion     3187.295
+Schwarz criterion    3315.450   Hannan-Quinn         3233.818
+
+Number of cases 'correctly predicted' = 1645 (65.7%)
+f(beta'x) at mean of independent vars = 0.399
+Likelihood ratio test: Chi-square(21) = 323.847 [0.0000]
+
+           Predicted
+              0     1
+  Actual 0  904   389
+         1  469   741
+
+Excluding the constant, p-value was highest for variable 60 (eco_proxy_2)
+
+Test for normality of residual -
+  Null hypothesis: error is normally distributed
+  Test statistic: Chi-square(2) = 9.43174
+  with p-value = 0.00895206
+
+Model 15: Probit, using observations 1-2629 (n = 2503)
+Missing or incomplete observations dropped: 126
+Dependent variable: accessed
+QML standard errors
+
+                      coefficient   std. error      z     p-value 
+  ----------------------------------------------------------------
+  const               −1.66850      0.218326     −7.642   2.13e-14 ***
+  gender               0.0904470    0.0706407     1.280   0.2004  
+  siblings            −0.0591030    0.0303493    −1.947   0.0515   *
+  mother_first_chi~    0.0411643    0.00661501    6.223   4.88e-10 ***
+  public               0.0370708    0.00760036    4.878   1.07e-06 ***
+  concerted            0.0543037    0.00779800    6.964   3.31e-12 ***
+  private             −0.00942734   0.0124542    −0.7570  0.4491  
+  extra_help          −0.118015     0.0553043    −2.134   0.0328   **
+  sport                0.232741     0.0610496     3.812   0.0001   ***
+  not_married         −0.166966     0.0753503    −2.216   0.0267   **
+  mother_accessed      0.431185     0.108816      3.962   7.42e-05 ***
+  father_accessed      0.284539     0.100855      2.821   0.0048   ***
+  DprovinciaCP1_2      0.380505     0.150381      2.530   0.0114   **
+  DprovinciaCP1_3      0.374562     0.179711      2.084   0.0371   **
+  DprovinciaCP1_4      0.0815294    0.0938542     0.8687  0.3850  
+  early_work          −0.184069     0.0533091    −3.453   0.0006   ***
+  income_sq_proxy1    −0.000137140  0.000225668  −0.6077  0.5434  
+  income_sq_proxy2    −8.94941e-05  0.000138198  −0.6476  0.5173  
+  income_sq_proxy3     5.75392e-05  0.000108301   0.5313  0.5952  
+  income_sq_proxy4     0.000227991  0.000100342   2.272   0.0231   **
+  income_sq_proxy5     0.000566325  0.000155632   3.639   0.0003   ***
+  income_sq_proxy6     0.000320340  0.000173407   1.847   0.0647   *
+
+Mean dependent var   0.483420   S.D. dependent var   0.499825
+McFadden R-squared   0.092650   Adjusted R-squared   0.079959
+Log-likelihood      −1572.956   Akaike criterion     3189.913
+Schwarz criterion    3318.068   Hannan-Quinn         3236.436
+
+Number of cases 'correctly predicted' = 1638 (65.4%)
+f(beta'x) at mean of independent vars = 0.399
+Likelihood ratio test: Chi-square(21) = 321.229 [0.0000]
+
+           Predicted
+              0     1
+  Actual 0  901   392
+         1  473   737
+
+Excluding the constant, p-value was highest for variable 164 (income_sq_proxy3)
+
+Test for normality of residual -
+  Null hypothesis: error is normally distributed
+  Test statistic: Chi-square(2) = 10.6285
+  with p-value = 0.00492099
+
+
