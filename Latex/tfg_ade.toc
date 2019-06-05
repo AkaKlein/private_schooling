@@ -2,8 +2,10 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {2}Preparing the Data}{1}
-\contentsline {subsection}{\numberline {2.1}Gathering the Data}{1}
-\contentsline {section}{\numberline {3}References}{3}
-\contentsline {section}{List of Figures}{4}
-\contentsline {section}{List of Tables}{5}
-\contentsline {section}{\numberline {4}Appendix 1: Survey}{5}
+\contentsline {subsection}{\numberline {2.1}Gathering the Data}{2}
+\contentsline {subsection}{\numberline {2.2}Cleaning the Data}{2}
+\contentsline {subsection}{\numberline {2.3}Preparing the Data}{3}
+\contentsline {section}{\numberline {3}General Results}{4}
+\contentsline {section}{\numberline {4}References}{7}
+\contentsline {section}{List of Figures}{8}
+\contentsline {section}{List of Tables}{9}

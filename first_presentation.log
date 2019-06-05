@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.13)  19 MAY 2019 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.13)  5 JUN 2019 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -933,7 +933,7 @@ Package rerunfilecheck Info: File `first_presentation.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  16969 strings out of 492982
- 323802 string characters out of 6134896
+ 323804 string characters out of 6134896
  399794 words of memory out of 5000000
  20133 multiletter control sequences out of 15000+600000
  12330 words of font info for 45 fonts, out of 8000000 for 9000
@@ -948,7 +948,7 @@ onts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on first_presentation.pdf (7 pages, 92069 bytes).
+Output written on first_presentation.pdf (7 pages, 91973 bytes).
 PDF statistics:
  250 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams
