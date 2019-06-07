@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.13)  5 JUN 2019 23:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.13)  7 JUN 2019 04:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -585,16 +585,24 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen185
 \titlewidthfirst=\dimen186
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count159
+\float@exts=\toks51
+\float@box=\box38
+\@float@everytoks=\toks52
+\@floatcapt=\box39
+)
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/block.tss
 File: block.tss 2016/03/15
 )
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/ttlkeys.def
 File: ttlkeys.def 2016/03/15
 )
-\c@theorem=\count159
-\c@prop=\count160
-\c@defi=\count161
-\c@claim=\count162
+\c@theorem=\count160
+\c@prop=\count161
+\c@defi=\count162
+\c@claim=\count163
 \@indexfile=\write4
 \openout4 = `tfg_ade.idx'.
 
@@ -621,17 +629,17 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count163
+\scratchcounter=\count164
 \scratchdimen=\dimen187
-\scratchbox=\box38
-\nofMPsegments=\count164
-\nofMParguments=\count165
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count166
+\scratchbox=\box40
+\nofMPsegments=\count165
+\nofMParguments=\count166
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count167
 \MPscratchDim=\dimen188
-\MPnumerator=\count167
-\makeMPintoPDFobject=\count168
-\everyMPtoPDFconversion=\toks52
+\MPnumerator=\count168
+\makeMPintoPDFobject=\count169
+\everyMPtoPDFconversion=\toks54
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -681,7 +689,7 @@ e
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-\c@lstlisting=\count169
+\c@lstlisting=\count170
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -717,7 +725,7 @@ File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box39
+\AtBeginShipoutBox=\box41
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 
@@ -816,54 +824,51 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
  [4] [5]
-Overfull \hbox (15.1833pt too wide) in paragraph at lines 158--207
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
+ []
+
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 165--168
+
+ []
+
+[8] [9] [10] (./tfg_ade.lot)
+\tf@lot=\write6
+\openout6 = `tfg_ade.lot'.
+
+ [11]
+Overfull \hbox (15.1833pt too wide) in paragraph at lines 199--248
  [] 
  []
 
-
-Overfull \hbox (7.9642pt too wide) in paragraph at lines 241--251
+[12]
+Overfull \hbox (7.9642pt too wide) in paragraph at lines 282--292
 [][] 
  []
 
-
-LaTeX Warning: Citation `abc' on page 6 undefined on input line 268.
-
-[6] [7] (./tfg_ade.lof)
-\tf@lof=\write6
-\openout6 = `tfg_ade.lof'.
-
- [8] (./tfg_ade.lot)
-\tf@lot=\write7
-\openout7 = `tfg_ade.lot'.
-
- [9] [10] [11] [12] (./tfg_ade.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[13] [14] [15] [16] [17] [18] [19] [20] (./tfg_ade.aux) ) 
 Here is how much of TeX's memory you used:
- 14619 strings out of 492982
- 240236 string characters out of 6134896
- 338835 words of memory out of 5000000
- 17857 multiletter control sequences out of 15000+600000
+ 14670 strings out of 492982
+ 240920 string characters out of 6134896
+ 335205 words of memory out of 5000000
+ 17907 multiletter control sequences out of 15000+600000
  50996 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,43p,906b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
-tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on tfg_ade.pdf (15 pages, 105574 bytes).
+ 41i,13n,43p,906b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on tfg_ade.pdf (23 pages, 119886 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 114 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

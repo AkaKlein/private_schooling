@@ -6,6 +6,9 @@
 \contentsline {subsection}{\numberline {2.2}Cleaning the Data}{2}
 \contentsline {subsection}{\numberline {2.3}Preparing the Data}{3}
 \contentsline {section}{\numberline {3}General Results}{4}
-\contentsline {section}{\numberline {4}References}{7}
-\contentsline {section}{List of Figures}{8}
-\contentsline {section}{List of Tables}{9}
+\contentsline {subsection}{\numberline {3.1}Computing the Estimations}{4}
+\contentsline {subsection}{\numberline {3.2}Analysis of Results}{6}
+\contentsline {subsection}{\numberline {3.3}Interpretation of Results}{6}
+\contentsline {section}{\numberline {4}Conclusions}{8}
+\contentsline {section}{\numberline {5}References}{10}
+\contentsline {section}{List of Tables}{11}

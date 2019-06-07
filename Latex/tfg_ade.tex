@@ -27,7 +27,7 @@
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{mathptmx}
 \usepackage[explicit]{titlesec}
-
+\usepackage{float}
 
 \titleformat{\section}[block]{\filcenter}{\thesection. \MakeUppercase{#1}}{1em}{}
 \titleformat{name=\section, numberless}[block]{\filcenter}{\MakeUppercase{#1}}{1em}{}
@@ -69,7 +69,7 @@ DATE: June 7th, 2019\\}}
 \newpage
 
 \begin{abstract}
-Hello, it's me,
+About a third of secondary level students in Catalonia receive some form of private schooling. One would believe, then, that receiving this form of education may raise the probability of accessing universisty. To try to answer this question, we collected data from over 6500 individuals in Catalonia, and computed estimations on the different factors that affect university access. The results on the estimations show that concerted schools do raise the chances of accessing university, but private schooling is not significant. Moreover, we were able to capture other relevant factors, predicting correcty around 65\% of the cases.
 \end{abstract}
 \newpage
 
@@ -109,12 +109,12 @@ It was necessary to eliminate any answer that was not plausible -such as too man
 
 \subsection{Preparing the Data}
 
-Over the cleaned data, we continued working in R to dummify the necessary variables. That is, we created dummies for the parents study level, their housing situation, and other factors necessary for our measurements. Moreover, we used the postal code to determine in which city or town the person grew up. With that, we were able to relate their city or town with the average income in 2016 for these areas. Because Barcelona is a lot larger than any other city in Catalonia, we decided to create another variable where individuals from the city were related to the average income in the neighborhood instead of the whole city.\\
+Over the cleaned data, we continued working in R to dummify the necessary variables. That is, we created dummies for the parents study level, their housing situation, and other factors necessary for our measurements. Moreover, we used the postal code to determine in which city or town the person grew up. With that, we were able to relate their city or town with the average income in 2016 for these areas. Because Barcelona is a lot larger than any other city in Catalonia, we decided to create another variable where individuals from the city were related to the average income in the neighborhood in 2015 instead of the whole city.\\
 From here, we moved on to the statistical software we would later use to make the estimations. Here we created interaction terms between several factors, and we separated the sample between individuals born before and after 1981. \\
 
 \section{General Results}
-
-We are particularly interested in the group of individuals born after 1981 -those who studied with the current education system in Spain. However, it is interesting to see how these results change for the population as a whole and for the older individuals (born before 1982). It is important to note that, in the younger group, 48.6\% of the subjects did access university, while in the older group, that was true for only 29.3\% of them. \\
+We are particularly interested in the group of individuals born after 1981 -those who studied with the current education system in Spain. However, it is interesting to see how these results change for the population as a whole and for the older individuals (born before 1982). It is important to note that, in the younger group, 48.6\% of the subjects did access university, while in the older group, that was true for only 29.3\% of them. 
+\subsection{Computing the Estimations}
 Given that we want to regress on $accessed$, we will use a probit model where the fitted value, $\widehat{accessed}$, is a continuous variable. If $\widehat{accessed}$ is above 0.5, we predict that that individual does access univerisity, and that they do not otherwise. After considering several different models, the one that fits best the objective of this research will be the one in equation 1.
 \begin{align}
 accessed_i = \beta_0 + \beta_1 \cdot gender_i + \beta_2  \cdot siblings_i + \beta_3 \cdot m\_{first}_i + \beta_4 \cdot public_i \nonumber \\
@@ -150,9 +150,50 @@ Where:
 
 As earlier mentioned, we separated the sample in two groups. After dropping the incomplete answers, the model with the full sample uses 5817 observations. Likewise, the moder for individuals born before 1982 uses 3281 observations, and the one for individuals after 1981, uses the remaining 2536. In table \ref{models}, we can observe the estimations for the model with different samples, with their standard error and significance level. Before analyzing the effect of different variables in university acceptance, it is interesting to analyze the effectiveness of the models. \\
 Looking into table \ref{predicted}, we see that the one that predicts the most observations correctly is the one for individuals born before 1982. However, looking at table \ref{actual}, we see that the model mostly predicts correctly those that did not go to university. This is consistent with the results for the full sample, even though this one does predict correctly more observations where the individual accessed university. Thus, looking at tables \ref{predicted} and \ref{actual} again, we see that for individuals born after 1981 the percentage of correctly predicted observations is lower, but its distribution is a lot more uniform. While it is not precise, it does predict that roughly half of the sample would access university, which is consistent with the percentage of individuals that actually did.
+\subsection{Analysis of Results}
+Looking at table \ref{models}, we are first interested in the effects of attending a private school. We see that in all three estimations, attending a private school is not relevant at a 10\% significance level. However, we see that attending a public or private school does increase the chances of accessing university. We also see that gender has no relevance in university entry in any of the estimations, and that the number of siblings is only relevant at a 10\% level. Moreover, we see that the parents' education is considerably relevant, as well as starting to work before the age of 18. The age at which the mother had her first child, seems to gain importance as time goes by, which is consistent with Spanish women choosing to have children later in life.\\ 
+Similarly, the number of siblings was more significant in the first time period than in the second, which is also consistent with the decline in the number of children per women. We must also highlight that the economic situation of the family seems to have been more important before than it is now, except for level 5. In the same way, the average income per capita in the neighborhood or town, does not seem to be of any relevance. Finally, the results for all three estimations suggest that individuals would have a higher chance of accessing university if they do not live in Barcelona, but these results are only relevant at a 5\% level for $Tarragona$.
+\subsection{Interpretation of Results}
+Given the cost of attending a private school in Catalonia, one would expect to see a higher performance or higher university acceptance from those students. However, the estimations do not show any evidence for that, suggesting that there may characteristics of individuals attending private schools that may raise this probability. Moreover, most private schools in Catalonia are either international schools or a status indicator. Hence, parents that choose a private school may not do so to improve their child education, but rather to allow them to grow in a school that is closer to their culture or nationality, or as a social class separation.\\
+As for concerted schools, we do see that they raise the individual's chance of accessing university, and that they do so more on average than a public school would. Concerted schools are generally more affordable, making a (perceived) better education available to lower income families. This suggests that parents who choose (and can afford) a concerted school, may be more involved in the child's education. However, most of these schools are religious, which may leave out families that want to enroll their children in a laic school with public schooling as their only option. \\
+We must highlight sport as a factor that largely affects university access. While it is not relevant for individuals born before 1982, it is statistically significant at a 1\% level for younger individuals. Practicing sport is not just about health, but it also develops desirable qualities in students -like reliability, responsibility and leadership-, and it requires of a supportive environment. Thus, parents who are more involved in their children education, may also be more supportive of them practicing sport.\\
+Looking into family situation, we must address the effect of the mother's age when having her first child. These results suggest that the older the mother, the more chances the child will have to access university. This might be so for a number of reasons. An older woman may already have a steady job or housing arrangement that allows her to better provide for her children. Similarly, an older woman is less likely to have another child, reducing the number of siblings. Another explanation may be that women who continue their education tend to have children later on, but there is little correlation between the two variables. As for marital status, for individuals born after 1981, it does have a significant negative effect that the parents are not married or a stable couple. Note that this category includes single parent homes as well as divorced couples.\\
+Moving on to the parents education, it is extremely relevant for both the mother and the father. For individuals born before 1982, there was a relatively small difference between having the father go to university or the mother. However, for the younger group, the effect that the mother going to university has is much larger than the one of the father. The combination of having both parents going to university, thus, raises the odds of accessing university further than any other variable. \\
+When we talk about economic situation, we see that it does not seem to be significant for younger individuals except for level 5. This suggests that a very high income (level 6) does not act as an incentive to access university, and that in levels below 5 there might be no real increased probability. Meanwhile, for older individuals, all of them are significant except level 2. Together with the results for younger individuals, this suggests that the economic situation of a family plays a much lower role in university acceptance today than it used to in the past. In the same line, we see that the income of the area in which the individual grew has no significance. This means that even if the income in said place is elevated, it will not raise the chances of accessing university.\\
 
+\section{Conclusions}
+After taking interest on whethe private scholarization actually had an effect on academic achievement reflected as university access, we were able to draw data and compute estimations for this statement. We started by collecting the data from 6561 volunteering individuals, who answered the survey in Appendix 1. We moved on by eliminating the observations of individuals who did not live in Catalonia during their childhood, and preparing the data for its use in statistical software. We then continued by computing the estimations over several different factors that may affect university access in addition to the type of schooling received by the individual. We computed three estimations, comparing the full sample with individuals born before and after 1981 (when the Spanish education system was last reformed).\\
+When interpreting the estimations, we found that attending a private school did not raise the chances of accessing university. Meanwhile, attending a public or concerted school does, albeit the former does so more than the latter. Moreover, we found a number of factors having a strong effect on our fitted values. We saw that the parents' eduaction level was far more relevant than economic situation or even the type of school the individual attended. Moreover, other factors like practicing sport as an extracurricular activity showed as relevant factors for university access. In the opposite direction, the economic situation of the family or the average income in the neighborhood did not seem to have any significance.\\
+Overall, the models we proposed are generally successfull at making a prediction. Particularly the model for those born after 1981 was better balanced than the other two. The model is not fully deterministic, since only 65.4\% of cases are correctly predicted. However, this might not be negative, since such a large error leaves place for factors like personality or intelligence, which cannot be easily measured but may have a strong effect in university acceptance.\\
 
-\begin{table} [ht]
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{scheper}
+Scheper, E. (2013). Comparing public and private schools.
+
+\bibitem{marlow}
+Marlow, M. L. (2010). The influence of private school enrollment on public school performance. Applied Economics, 42(1), 11-22.
+
+\bibitem{coleman}
+Coleman, J., Hoffer, T., \& Kilgore, S. (1982). Cognitive outcomes in public and private schools. Sociology of education.
+
+\bibitem{fetler}
+Fetler, M. E. (1991). Pitfalls of using SAT results to compare schools. American Educational Research Journal, 28(2), 481-491.
+
+\bibitem{bedard}
+Bedard, K. (2001). Human capital versus signaling models: university access and high school dropouts. Journal of Political Economy, 109(4), 749-775.
+
+\bibitem{stiglitz}
+Stiglitz, J. E. (1974). The demand for education in public and private school systems.
+
+\end{thebibliography}
+
+\newpage
+\listoftables
+
+\newpage
+\begin{table} [H]
 \caption{Model 1 with Different Sample Restrictions}
 \begin{center}
 \begin{tabular}{l|l|l|l p{3.5}}
@@ -208,7 +249,7 @@ $l\_{NB}$&-0.0119 \ (0.0162)&-0.0279 \ (0.224)&-0.0082 \ (0.0240)\\
   \label{models}
 \end{table}
 
-\begin{table} [ht]
+\begin{table}[H]
 \caption{Number of Cases Correctly Predicted by Model 1}
 \begin{center}
 \begin{tabular}{cccc}
@@ -222,7 +263,7 @@ Percentage&67.4\%&71.1\%&65.4\%\\
 \label{predicted}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[H]
 \caption{Distribution of Cases Correctly and Incorrectly Predicted by Model 1}
 \begin{center}
 \begin{minipage}{2.5in}
@@ -265,41 +306,257 @@ Actual&0&910&403\\
 \label{actual}
 \end{table}
 
-An example of reference is \cite{abc}.
-
 \newpage
-\begin{thebibliography}{9}
+\section*{Appendix 1: Survey}
+In this appendix we present the translation of the survey distributed. If the question is market with * it means the answer is required to move forward.
 
-\bibitem{scheper}
-Scheper, E. (2013). Comparing public and private schools.
+Survey about education level
+\begin{itemize}
+\item In this survey we collect data on people that have finished secondary education.
+\end{itemize}
 
-\bibitem{marlow}
-Marlow, M. L. (2010). The influence of private school enrollment on public school performance. Applied Economics, 42(1), 11-22.
-
-\bibitem{coleman}
-Coleman, J., Hoffer, T., \& Kilgore, S. (1982). Cognitive outcomes in public and private schools. Sociology of education.
-
-\bibitem{fetler}
-Fetler, M. E. (1991). Pitfalls of using SAT results to compare schools. American Educational Research Journal, 28(2), 481-491.
-
-\bibitem{bedard}
-Bedard, K. (2001). Human capital versus signaling models: university access and high school dropouts. Journal of Political Economy, 109(4), 749-775.
-
-\bibitem{stiglitz}
-Stiglitz, J. E. (1974). The demand for education in public and private school systems.
-
-\end{thebibliography}
-
-\newpage
-\listoffigures
-
-\newpage
-\listoftables
-
-\newpage
-Appendix 1: Survey
-
-
+\begin{enumerate}
+\item General information
+\begin{itemize}
+\item Here we will ask you some general questions about you and your family.
+\end{itemize}
+\begin{enumerate}
+\item Year of birth*
+\item Gender*
+\begin{itemize}
+\item Female
+\item Male
+\end{itemize}
+\item How many siblings do you have?*
+\begin{itemize}
+\item If you do not have any siblings, answer zero (0).
+\end{itemize}
+\item Order of birth*
+\begin{itemize}
+\item If you are an only child, answer 1.
+\end{itemize}
+\end{enumerate}
+\item Parents
+\begin{itemize}
+\item In this section we will ask you some questions about your parents.
+\end{itemize}
+\begin{enumerate}
+\item During the majority of your childhood, what was your family's situation?*
+\begin{itemize}
+\item Until age 16.
+\end{itemize}
+\begin{enumerate}
+\item Parents living together as a couple, married or as a de facto couple. 
+\item Parents divorced or separated, living separated without a partner.
+\item Divorced parents and one of the two with another partner.
+\item Divorced parents and both of them with another partner.
+\item Widow father or mother without a partner.
+\item Widow father or mother with a partner.
+\item Other situations (orphan, under guardianship of a family member, social services, etc.)
+\end{enumerate}
+\item At what age did your mother have her first child?*
+\item At what age did your father have his first child?*
+\item What is the maximum study level your mother achieved?*
+\begin{enumerate}
+\item Did not finish Primary Education or General Basic Education (EGB).
+\item Primary Education or General Basic Education (EGB).
+\item Mandatory Secondary Education (ESO) or Unified Polyvalent Baccalaureate (BUP).
+\item Baccalaureate or Universitary Orientation Course (COU).
+\item Medium Degree Formative Cycle (FP).
+\item Superior Degree Formative Cycle (FP).
+\item Diploma or Technical Engineering.
+\item Bachelor's Degree or European Bachelor's Degree.
+\item Master's Degree.
+\item Philosopher's Degree.
+\end{enumerate}
+\item What is the maximum study level your father achieved?*
+\begin{enumerate}
+\item Did not finish Primary Education or General Basic Education (EGB).
+\item Primary Education or General Basic Education (EGB).
+\item Mandatory Secondary Education (ESO) or Unified Polyvalent Baccalaureate (BUP).
+\item Baccalaureate or Universitary Orientation Course (COU).
+\item Medium Degree Formative Cycle (FP).
+\item Superior Degree Formative Cycle (FP).
+\item Diploma or Technical Engineering.
+\item Bachelor's Degree or European Bachelor's Degree.
+\item Master's Degree.
+\item Philosopher's Degree.
+\end{enumerate}
+\item What type of education did your mother receive?*
+\begin{itemize}
+\item Primary and secondary education.
+\end{itemize}
+\begin{enumerate}
+\item Public
+\item Concerted Religious
+\item Concerted Laic
+\item Private Religious
+\item Private Laic
+\end{enumerate}
+\item What type of education did your father receive?*
+\begin{itemize}
+\item Primary and secondary education.
+\end{itemize}
+\begin{enumerate}
+\item Public
+\item Concerted Religious
+\item Concerted Laic
+\item Private Religious
+\item Private Laic
+\end{enumerate}
+\item What was your mother's main job?*
+\begin{itemize}
+\item Includes cathegories like house worker or unemployed.
+\end{itemize}
+\item What was your father's main job?*
+\begin{itemize}
+\item Includes cathegories like house worker or unemployed.
+\end{itemize}
+\end{enumerate}
+\item Economic Environment
+\begin{enumerate}
+\item How many people were full time workers in your home?*
+\item How many people were part time workers in your home?*
+\item In which category would you classify your family's economic situation during your childhood?*
+\begin{enumerate}
+\item We had difficulty to cover our basic expenses (housing, food, etc.).
+\item We could cover our basic expenses, but we could not afford any type of luxuries.
+\item We could afford occasional luxuries (eating out every once in a while).
+\item We could afford regular luxuries (like going on vacation every year).
+\item We could afford even more luxuries (multiple vacations every year, several cars).
+\item Money was not a limiting factor (summer houses, several cars, etc.). 
+\end{enumerate}
+\item What was your family's situation with regards to housing?*
+\begin{enumerate}
+\item Rent
+\item Property
+\item Property of official protection
+\item Other situations
+\end{enumerate}
+\item Indicate your postal code (or postal codes) of your house during your childhood.*
+\item At what age did you start working?*
+\begin{itemize}
+\item If you have not started to work yet, answer NO.
+\end{itemize}
+\end{enumerate}
+\item Own Education
+\begin{itemize}
+\item Here we will ask you questions about your own education.
+\end{itemize}
+\begin{enumerate}
+\item Have you finished studying yet?*
+\begin{itemize}
+\item Yes
+\item No
+\end{itemize}
+\item If you have finished studying, what is your maximum study degree?
+\begin{enumerate}
+\item Primary Education or General Basic Education (EGB).
+\item Mandatory Secondary Education (ESO) or Unified Polyvalent Baccalaureate (BUP).
+\item Baccalaureate or Universitary Orientation Course (COU).
+\item Medium Degree Formative Cycle (FP).
+\item Superior Degree Formative Cycle (FP).
+\item Diploma or Technical Engineering.
+\item Bachelor's Degree or European Bachelor's Degree.
+\item Master's Degree.
+\item Philosopher's Degree.
+\end{enumerate}
+\item If you have not finished studying yet, what type of studies are you currently coursing?
+\begin{enumerate}
+\item Primary Education.
+\item Mandatory Secondary Education (ESO).
+\item Baccalaureate.
+\item Medium Degree Formative Cycle (FP).
+\item Superior Degree Formative Cycle (FP).
+\item European Bachelor's Degree.
+\item Master's Degree.
+\item Philosopher's Degree.
+\end{enumerate}
+\item Have you coursed other Baccalaureate modalities?*
+\begin{itemize}
+\item International Baccalaureate, studies abroad, foreign systems, etc.
+\end{itemize}
+\begin{enumerate}
+\item Yes
+\item No
+\end{enumerate}
+\item Between Primary 1st and 2nd of Baccalaureate or Medium Degree Formative Cycle, how many courses did you do at a public school?*
+\begin{itemize}
+\item Answeres $\in (0, 12)$.
+\end{itemize}
+\item Between Primary 1st and 2nd of Baccalaureate or Medium Degree Formative Cycle, how many courses did you do at a concerted religious school?*
+\begin{itemize}
+\item Answeres $\in (0, 12)$.
+\end{itemize}
+\item Between Primary 1st and 2nd of Baccalaureate or Medium Degree Formative Cycle, how many courses did you do at a concerted laic school?*
+\begin{itemize}
+\item Answeres $\in (0, 12)$.
+\end{itemize}
+\item Between Primary 1st and 2nd of Baccalaureate or Medium Degree Formative Cycle, how many courses did you do at a private religious school?*
+\begin{itemize}
+\item Answeres $\in (0, 12)$.
+\end{itemize}
+\item Between Primary 1st and 2nd of Baccalaureate or Medium Degree Formative Cycle, how many courses did you do at a private laic school?*
+\begin{itemize}
+\item Answeres $\in (0, 12)$.
+\end{itemize}
+\item During your primary and secondary education, did you receive any of the following?*
+\begin{itemize}
+\item Select the option if you received this service for at least a year.
+\end{itemize}
+\begin{enumerate}
+\item Reinforcement classes.
+\item Extracurricular classes (for example: language schools, kumon, etc.).
+\item Logopedia or Psychopedagogy
+\item Ninguna
+\end{enumerate}
+\item Did you practice any extracurricular sport?*
+\begin{itemize}
+\item Yes.
+\item No.
+\end{itemize}
+\item Have you done the university access exam (selectivity)?*
+\begin{itemize}
+\item Yes
+\item No
+\end{itemize}
+If you did selectivity in 2009 or before, what was your grade?
+\begin{itemize}
+\item $<5$
+\item Half a point ranges $\in (5, 10)$
+\item I do not remember
+\end{itemize}
+\item If you did selectivity in 2010 or later, what was your grade?
+\begin{itemize}
+\item $<5$
+\item Half a point ranges $\in (5, 14)$
+\item I do not remember
+\end{itemize}
+\item If you accessed university, to which degree?
+\item Did you access the first year yo applied?
+\begin{itemize}
+\item Yes
+\item No
+\end{itemize}
+\item If you did not access the first time, how many times did you apply?
+\item Was it your first option?
+\begin{itemize}
+\item Yes
+\item No
+\end{itemize}
+\item If it was not your first option. which one was it?
+\begin{itemize}
+\item Second
+\item Third
+\item Fourth
+\item Fifth
+\item Sixth
+\item Seventh
+\item eighth
+\item I did not access university
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
 %
 \end{document}
 %--------------------------------------------------------------%
